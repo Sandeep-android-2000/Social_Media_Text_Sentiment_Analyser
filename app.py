@@ -57,6 +57,7 @@ def logout():
     user_session = get_user_session()
     user_session['authenticated'] = False
     user_session['username'] = None
+    st.experimental_rerun()  # Reload the app
 
 
 def save_models(lr_model, svm_model, rf_model):
