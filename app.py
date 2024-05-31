@@ -179,20 +179,11 @@ def main():
         
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
         
-        lr_model = LogisticRegression()
-        lr_model.fit(X_train, y_train)
-        
-        svm_model = SVC(kernel='linear')
-        svm_model.fit(X_train, y_train)
-        
-        rf_model = RandomForestClassifier()
-        rf_model.fit(X_train, y_train)
-        
-        save_models(lr_model, svm_model, rf_model)
+        lr_model, svm_model, rf_model = load_models()
         st.sidebar.subheader("Predict")
         text = st.sidebar.text_area("Enter News Article Here")
         text = preprocess_text(text)
-        fact_result = fact_check(text)
+        fact_result = fact_check(text) # remove this
         
         sentiment = analyze_sentiment(text)
         
