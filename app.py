@@ -1,4 +1,3 @@
-# Importing required libraries
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -15,6 +14,10 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 import pickle
 
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('vader_lexicon')
 
 def get_user_session():
     if 'user' not in st.session_state:
